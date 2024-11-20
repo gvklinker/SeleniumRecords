@@ -30,7 +30,7 @@ namespace SeleniumRecords
         [TestMethod]
         public void TestMethod1()
         {
-            string url = "file\\C:\\Users\\Gustav\\OneDrive - Zealand\\REST\\Prog\\CD\\index.html";
+            string url = "file:\\C:\\Users\\Gustav\\OneDrive - Zealand\\REST\\Prog\\CD\\index.html";
             _driver.Navigate().GoToUrl(url);
 
             string title = _driver.Title;
