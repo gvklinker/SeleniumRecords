@@ -39,22 +39,15 @@ namespace SeleniumRecords
             IWebElement buttonElement = _driver.FindElement(By.Id("getAllButton"));
             buttonElement.Click();
 
-            //IWebElement carList = _driver.FindElement(By.Id("carlist")); // No such element
-
-            //pause(60); // NOT good, will always wait full 60 sec
-
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10)); // decorator pattern?
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10)); 
             IWebElement carList = wait.Until(d => d.FindElement(By.Id("recordlist")));
             Assert.IsTrue(carList.Text.Contains("sang2"));
 
-            // We already did the waiting in the previous lines, so now we can go back to using the ordinary driver
             ReadOnlyCollection<IWebElement> listElements = _driver.FindElements(By.TagName("li"));
             Assert.AreEqual(2, listElements.Count);
 
             Assert.IsTrue(listElements[0].Text.Contains("sang1"));
 
-            // XPath, an advanced option to use By.XPath(...)
-            // https://www.guru99.com/handling-dynamic-selenium-webdriver.html
         }
         [TestMethod]
         public void TestMethod2()
